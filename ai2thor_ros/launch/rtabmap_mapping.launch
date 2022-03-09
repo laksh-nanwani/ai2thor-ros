@@ -3,7 +3,7 @@
 
     <!--Starting rtabmap mapping-->
   <include file="$(find rtabmap_ros)/launch/rtabmap.launch">
-	<arg name="args" value="--delete_db_on_start --Grid/MaxObstacleHeight 2.0"/>
+	<arg name="args" value="--delete_db_on_start --Grid/MaxObstacleHeight 1.0"/>
 
 	<param name="Odom/ResetCountdown"  type="string" value="1"/>
 	<param name="Rtabmap/StartNewMapOnLoopClosure"  type="bool" value="true"/>

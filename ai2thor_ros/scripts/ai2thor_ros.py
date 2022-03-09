@@ -11,7 +11,7 @@ from cv_bridge import CvBridge
 import numpy as np
 
 class Ai2Thor:
-    def __init__(self, scene_number):
+    def __init__(self, scene_number = 1, crouch = True):
         self.controller = Controller(agentMode="default",
                                     visibilityDistance = 1,
                                     scene = ("FloorPlan{}".format(scene_number)),
@@ -29,8 +29,8 @@ class Ai2Thor:
                                     width = 600,
                                     height = 600,
                                     fieldOfView = 90)
-
-        self.controller.step(action="Crouch")
+        if crouch:
+            self.controller.step(action="Crouch")
 
         self.br = CvBridge()
         
@@ -104,21 +104,10 @@ class Ai2Thor:
             self.publish_images(header)
             self.publish_camera_info(header)
             rate.sleep()
-
-    # def start(self):
-    #     rospy.loginfo("Ai2Thor Ros Node Started")
-    #     #rospy.spin()
-    #     while not rospy.is_shutdown():
-            # rospy.loginfo('publishing image')
-            #br = CvBridge()
-            # if self.image is not None:
-            #     self.pub.publish(br.cv2_to_imgmsg(self.image))
-            # self.loop_rate.sleep()
-
     
     
 if __name__ == '__main__':
     rospy.init_node("ai2thor_rosnode", anonymous = False)
-    rosnode = Ai2Thor(212   )
+    rosnode = Ai2Thor(302)
     rosnode.publish_state(freq = 20)
     rospy.spin()
