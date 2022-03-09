@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+    <!--Starting rtabmap mapping-->
+  <include file="$(find rtabmap_ros)/launch/rtabmap.launch">
+	<arg name="args" value="--delete_db_on_start --Grid/MaxObstacleHeight 2.0"/>
+
+	<param name="Odom/ResetCountdown"  type="string" value="1"/>
+	<param name="Rtabmap/StartNewMapOnLoopClosure"  type="bool" value="true"/>
+	<!--param name="Grid/MaxObstacleHeight" type = "string" value="0.5"/-->
+
+        <arg name="rgb_topic" value="/camera/rgb/image_raw"/>
+        <arg name="camera_info_topic" value="/camera/rgb/camera_info"/>
+	<arg name="depth_topic" value="/camera/depth/image_raw"/>
+        <arg name="depth_camera_info_topic" value="/camera/depth/camera_info"/>
+	
+	<arg name="subscribe_scan" value ="false"/>
+	<arg name="scan_topic" value="/scan"/>
+
+	<arg name="approx_sync" value="true"/> 
+        <arg name="rtabmapviz" value="true"/>
+	
+	<!--arg name = "map_filter_radius" value = "2.0"/-->
+
+  </include>
+  
+</launch>
