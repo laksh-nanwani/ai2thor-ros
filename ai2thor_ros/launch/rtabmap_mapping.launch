@@ -14,13 +14,11 @@
 	<arg name="depth_topic" value="/camera/depth/image_raw"/>
         <arg name="depth_camera_info_topic" value="/camera/depth/camera_info"/>
 	
-	<arg name="subscribe_scan" value ="false"/>
-	<arg name="scan_topic" value="/scan"/>
+	<!--arg name="subscribe_scan" value ="false"/-->
+	<!--arg name="scan_topic" value="/scan"/-->
 
 	<arg name="approx_sync" value="true"/> 
         <arg name="rtabmapviz" value="true"/>
-	
-	<!--arg name = "map_filter_radius" value = "2.0"/-->
 
   </include>
   
